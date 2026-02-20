@@ -29,6 +29,8 @@ Le Dashboard démontre la capacité de l'IA à identifier 3 scénarios critiques
 
 👉 **[Accéder au Dashboard Aximum IA](https://hackathon-colas-aximum---2026-e6fifmuv2tckvsptzdjra5.streamlit.app/)**
 
+👉 [Consulter la présentation complète (PDF)](./Presentation-Safe-Guard.pdf)
+
 ---
 
 <a name="english"></a>
@@ -51,6 +53,8 @@ The Dashboard identifies 3 critical scenarios:
 * **AI:** YOLOv8 (Real-time detection) & Roboflow
 
 👉 **[Access the Live Demo](https://hackathon-colas-aximum---2026-e6fifmuv2tckvsptzdjra5.streamlit.app/)**
+
+👉 [View the full presentation (PDF)](./Presentation-Safe-Guard.pdf)
 
 ---
 **Created by Cheikhi Annass - February 2026**
