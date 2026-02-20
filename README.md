@@ -35,7 +35,7 @@ L'interface simule également le retour haptique et visuel reçu par l'ouvrier v
 ## 💻 Démonstration Live
 
 L'application est accessible publiquement ici :
-👉 **[Accéder au Dashboard Aximum-Guard AI](https://hackathon-colas-aximum---2026-e6fifmuv2tckvsptzdjra5.streamlit.app/)**
+👉 **[Accéder au Dashboard Aximum IA](https://hackathon-colas-aximum---2026-e6fifmuv2tckvsptzdjra5.streamlit.app/)**
 
 ---
 **Réalisé par Cheikhi Annass - Février 2026**
