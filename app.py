@@ -2,21 +2,32 @@ import streamlit as st
 import os
 import base64
 from PIL import Image
+import cv2  # Nouveau
+from ultralytics import YOLO  # Nouveau
 
 # --- 1. CONFIGURATION ---
 st.set_page_config(page_title="Aximum-IA", page_icon="🛡️", layout="wide")
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ASSETS_DIR = os.path.join(BASE_DIR, "assets")
 
+# Charger le modèle YOLO (Mis en cache pour éviter de ramer)
+@st.cache_resource
+def load_yolo_model():
+    # Assure-toi que yolov8n.pt est bien dans ton dossier assets/
+    model_path = os.path.join(ASSETS_DIR, "yolov8n.pt")
+    if os.path.exists(model_path):
+        return YOLO(model_path)
+    return None
+
+model = load_yolo_model()
+
 def load_img(name):
-    # Cette fonction ajoute déjà "assets/" toute seule
     path = os.path.join(ASSETS_DIR, name)
     if os.path.exists(path):
         return Image.open(path)
     return None
 
 def get_base64_image(name):
-    # Cette fonction ajoute déjà "assets/" toute seule
     path = os.path.join(ASSETS_DIR, name)
     if os.path.exists(path):
         with open(path, "rb") as img_file:
@@ -75,32 +86,33 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # --- 3. LOGO & NAV ---
-# NOTE: Juste le nom du fichier, la fonction load_img cherche déjà dans /assets
 logo = load_img("AximumIA.png")
 if logo: 
     st.sidebar.image(logo, use_container_width=True)
 else: 
     st.sidebar.error("⚠️ Image 'AximumIA.png' introuvable dans /assets")
 
-page = st.sidebar.selectbox("Navigation :", ["👓 Dashboard Lunettes", "🚗 Scénario Vitesse", "🚧 Scénario Collision", "🆘 Scénario Homme Mort"])
+page = st.sidebar.selectbox("Navigation :", [
+    "👓 Dashboard Lunettes", 
+    "🎥 Live Cam IA",  # Nouvelle page
+    "🚗 Scénario Vitesse", 
+    "🚧 Scénario Collision", 
+    "🆘 Scénario Homme Mort"
+])
 
 # --- 4. PAGES ---
 
 if page == "👓 Dashboard Lunettes":
     st.title("🛡️ Dashboard Sécurité Connectée")
     col1, col2, col3, col4 = st.columns(4)
-    
-    # Juste le nom, get_base64_image gère le dossier assets
     b64_casque = get_base64_image("picto_casque.png")
     b64_danger = get_base64_image("picto_danger.png")
     b64_vitesse = get_base64_image("picto_vitesse.png")
     b64_chute = get_base64_image("picto_chute.png")
-
     img_casque = f'<img src="data:image/png;base64,{b64_casque}" width="60" style="filter: invert(1);">' if b64_casque else ''
     img_danger = f'<img src="data:image/png;base64,{b64_danger}" width="60">' if b64_danger else ''
     img_vitesse = f'<img src="data:image/png;base64,{b64_vitesse}" width="60">' if b64_vitesse else ''
     img_chute = f'<img src="data:image/png;base64,{b64_chute}" width="60" style="filter: invert(1);">' if b64_chute else ''
-    
     with col1:
         st.markdown(f'<div class="screen-simu" style="border-color: #3b82f6;"><h4>🔵 VIGILANCE</h4><div class="screen-content">{img_casque}<br><b style="color:white;">CASQUE REQUIS</b></div></div>', unsafe_allow_html=True)
     with col2:
@@ -109,6 +121,42 @@ if page == "👓 Dashboard Lunettes":
         st.markdown(f'<div class="screen-simu" style="border-color: #f59e0b;"><h4>🟠 RISQUE</h4><div class="screen-content">{img_vitesse}<br><b style="color:white;">78 km/h</b></div></div>', unsafe_allow_html=True)
     with col4:
         st.markdown(f'<div class="screen-simu" style="border-color: #ef4444;"><h4>🔴 DANGER</h4><div class="screen-content">{img_chute}<br><b style="color:#ef4444;">HOMME AU SOL</b></div></div>', unsafe_allow_html=True)
+
+elif page == "🎥 Live Cam IA":
+    st.title("🎥 Flux Caméra : Analyse Prédictive")
+    st.write("Démonstration de la détection YOLOv8 en temps réel sur un flux vidéo.")
+    
+    # Switch ON/OFF pour l'IA
+    mode_ia = st.toggle("🤖 Activer l'Analyse IA YOLOv8", value=True)
+    
+    video_path = os.path.join(ASSETS_DIR, "video-chantier.mp4")
+    
+    if not os.path.exists(video_path):
+        st.error(f"Fichier vidéo 'video-chantier.mp4' introuvable dans le dossier assets.")
+    elif model is None:
+        st.error("Le modèle 'yolov8n.pt' est introuvable dans le dossier assets.")
+    else:
+        cap = cv2.VideoCapture(video_path)
+        frame_placeholder = st.empty()
+        
+        # Bouton pour arrêter le flux
+        stop_cam = st.button("Arrêter la caméra")
+        
+        while cap.isOpened() and not stop_cam:
+            ret, frame = cap.read()
+            if not ret:
+                cap.set(cv2.CAP_PROP_POS_FRAMES, 0) # Boucle
+                continue
+            
+            if mode_ia:
+                results = model(frame, stream=True, conf=0.4, verbose=False)
+                for r in results:
+                    frame = r.plot()
+            
+            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            frame_placeholder.image(frame, channels="RGB", use_container_width=True)
+            
+        cap.release()
 
 elif page == "🚗 Scénario Vitesse":
     st.title("🚗 Analyse : Intrusion Haute Vitesse")
