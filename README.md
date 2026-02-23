@@ -11,7 +11,7 @@
 [![YOLOv8](https://img.shields.io/badge/AI-YOLOv8-blue)](https://github.com/ultralytics/ultralytics)
 [![Python](https://img.shields.io/badge/Code-Python_3.12-yellow)](https://www.python.org/)
 
-> **⚠️ État du projet :** Ce dépôt présente un **Prototype Fonctionnel (MVP)** développé en un temps record lors d'un Hackathon. Il s'agit d'une preuve de concept (PoC) destinée à démontrer le potentiel de l'IA dans la sécurité routière et industrielle.
+> **⚠️ État du projet :** Ce dépôt présente un **Prototype Fonctionnel (MVP)** développé en peu de temps lors d'un Hackathon. Il s'agit d'une preuve de concept (PoC) destinée à démontrer le potentiel de l'IA dans la sécurité routière et industrielle.
 
 ### 📋 À propos du projet
 Développé par **Cheikhi Annass** lors du **Hackathon Colas/Aximum 2026**, ce projet vise à transformer la sécurité des ouvriers sur le terrain. L'idée est de passer d'une sécurité passive (EPI classiques) à une **sécurité active et prédictive**. 
