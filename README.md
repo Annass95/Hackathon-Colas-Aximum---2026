@@ -1,60 +1,64 @@
-# 🛡️ Safe-Guard : Active Construction Site Safety | Sécurité Active sur Chantier
+🛡️ Safe-Guard : Active Construction Site Safety | Sécurité Active sur Chantier
+Français | English
 
-[Français](#français) | [English](#english)
+🇫🇷 Français <a name="français"></a>
+⚠️ État du projet : Ce dépôt présente un Prototype Fonctionnel (MVP) développé en seulement 24 heures lors d'un Hackathon. Il s'agit d'une preuve de concept (PoC) destinée à démontrer le potentiel de l'IA dans la sécurité routière et industrielle.
 
----
+📋 À propos du projet
+Développé par Cheikhi Annass lors du Hackathon Colas/Aximum 2026, ce projet vise à transformer la sécurité des ouvriers sur le terrain. L'idée est de passer d'une sécurité passive (EPI classiques) à une sécurité active et prédictive.
 
-<a name="français"></a>
-## 🇫🇷 Français
+🚀 Fonctionnalités du MVP
+Le Dashboard démontre la capacité de l'IA à identifier des scénarios critiques :
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://hackathon-colas-aximum---2026-e6fifmuv2tckvsptzdjra5.streamlit.app/)
-[![YOLOv8](https://img.shields.io/badge/AI-YOLOv8-blue)](https://github.com/ultralytics/ultralytics)
-[![Python](https://img.shields.io/badge/Code-Python_3.12-yellow)](https://www.python.org/)
+🎥 Analyse Caméra Live (YOLOv8) : Détection dynamique d'objets (véhicules, personnes, obstacles) avec switch de vision IA/Normal.
 
-> **⚠️ État du projet :** Ce dépôt présente un **Prototype Fonctionnel (MVP)** développé en un temps record lors d'un Hackathon. Il s'agit d'une preuve de concept (PoC) destinée à démontrer le potentiel de l'IA dans la sécurité routière et industrielle.
+🚗 Risque Vitesse : Détection de véhicules en intrusion à haute vitesse.
 
-### 📋 À propos du projet
-Développé par **Cheikhi Annass** lors du **Hackathon Colas/Aximum 2026**, ce projet vise à transformer la sécurité des ouvriers sur le terrain. L'idée est de passer d'une sécurité passive (EPI classiques) à une **sécurité active et prédictive**. 
+🚧 Risque Collision : Identification en temps réel des chocs avec le balisage.
 
-### 🚀 Fonctionnalités du MVP
-Le Dashboard démontre la capacité de l'IA à identifier 3 scénarios critiques :
-1.  **🚗 Risque Vitesse :** Détection de véhicules en intrusion à haute vitesse.
-2.  **🚧 Risque Collision :** Identification en temps réel des chocs avec le balisage.
-3.  **🆘 Risque Homme Mort :** Détection de posture allongée prolongée pour alerte d'urgence.
+🆘 Risque Homme Mort : Détection de posture allongée prolongée pour alerte d'urgence.
 
-### 🛠️ Stack Technique
-* **Langage :** Python 3.12.10
-* **Framework Web :** Streamlit
-* **IA :** YOLOv8 (Détection d'objets) & Roboflow
+🛠️ Stack Technique
+Langage : Python 3.12.10
 
-👉 **[Accéder au Dashboard Aximum IA](https://hackathon-colas-aximum---2026-e6fifmuv2tckvsptzdjra5.streamlit.app/)**
+IA : YOLOv8 (Inférence en temps réel)
 
-👉 [Consulter la présentation complète (PDF)](./Presentation-Safe-Guard.pdf)
+Vision : OpenCV (Traitement de flux vidéo)
 
----
+Framework Web : Streamlit
 
-<a name="english"></a>
-## 🇬🇧 English
+👉 Accéder au Dashboard Aximum IA
 
-> **⚠️ Project Status:** This repository presents a **Functional Prototype (MVP)** developed during a high-intensity Hackathon. It serves as a proof of concept (PoC) demonstrating the potential of AI in road and industrial safety.
+👉 Consulter la présentation complète (PDF)
 
-### 📋 About the Project
-Developed by **Cheikhi Annass** during the **2026 Colas/Aximum Hackathon**, this project aims to revolutionize worker safety. The core vision is to transition from passive safety to **active and predictive safety** using computer vision.
+🇬🇧 English <a name="english"></a>
+⚠️ Project Status: This repository presents a Functional Prototype (MVP) developed in a record 24-hour timeframe during a high-intensity Hackathon. It serves as a proof of concept (PoC) demonstrating the potential of AI in road and industrial safety.
 
-### 🚀 MVP Features
-The Dashboard identifies 3 critical scenarios:
-1.  **🚗 Speed Risk:** Analysis of vehicle intrusion at high speeds.
-2.  **🚧 Collision Risk:** Real-time identification of impacts with safety equipment.
-3.  **🆘 Man-Down Detection:** Intelligent detection of prolonged prone posture for immediate alerts.
+📋 About the Project
+Developed by Cheikhi Annass during the 2026 Colas/Aximum Hackathon, this project aims to revolutionize worker safety. The core vision is to transition from passive safety to active and predictive safety using computer vision.
 
-### 🛠️ Technical Stack
-* **Language:** Python 3.12.10
-* **Web Framework:** Streamlit
-* **AI:** YOLOv8 (Real-time detection) & Roboflow
+🚀 MVP Features
+The Dashboard identifies critical safety scenarios:
 
-👉 **[Access the Live Demo](https://hackathon-colas-aximum---2026-e6fifmuv2tckvsptzdjra5.streamlit.app/)**
+🎥 Live AI Camera Feed (YOLOv8): Dynamic detection of objects (vehicles, workers, obstacles) with an AI/Normal vision toggle.
 
-👉 [View the full presentation (PDF)](./Presentation-Safe-Guard.pdf)
+🚗 Speed Risk: Analysis of vehicle intrusion at high speeds.
 
----
-**Created by Cheikhi Annass - February 2026**
+🚧 Collision Risk: Real-time identification of impacts with safety equipment.
+
+🆘 Man-Down Detection: Intelligent detection of prolonged prone posture for immediate alerts.
+
+🛠️ Technical Stack
+Language: Python 3.12.10
+
+AI: YOLOv8 (Real-time inference)
+
+Vision: OpenCV (Video stream processing)
+
+Web Framework: Streamlit
+
+👉 Access the Live Demo
+
+👉 View the full presentation (PDF)
+
+Created by Cheikhi Annass - February 2026
