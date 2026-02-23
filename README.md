@@ -19,8 +19,9 @@ Développé par **Cheikhi Annass** lors du **Hackathon Colas/Aximum 2026**, ce p
 ### 🚀 Fonctionnalités du MVP
 Le Dashboard démontre la capacité de l'IA à identifier 3 scénarios critiques :
 1.  **🚗 Risque Vitesse :** Détection de véhicules en intrusion à haute vitesse.
-2.  **🚧 Risque Collision :** Identification en temps réel des chocs avec le balisage.
-3.  **🆘 Risque Homme Mort :** Détection de posture allongée prolongée pour alerte d'urgence.
+2.  **🎥 Live Cam IA :** Flux vidéo avec détection dynamique en temps réel (Switch Vision IA/Normale).
+3.  **🚧 Risque Collision :** Identification en temps réel des chocs avec le balisage.
+4.  **🆘 Risque Homme Mort :** Détection de posture allongée prolongée pour alerte d'urgence.
 
 ### 🛠️ Stack Technique
 * **Langage :** Python 3.12.10
@@ -42,8 +43,9 @@ Developed by **Cheikhi Annass** during the **2026 Colas/Aximum Hackathon**, this
 ### 🚀 MVP Features
 The Dashboard identifies 3 critical scenarios:
 1.  **🚗 Speed Risk:** Analysis of vehicle intrusion at high speeds.
-2.  **🚧 Collision Risk:** Real-time identification of impacts with safety equipment.
-3.  **🆘 Man-Down Detection:** Intelligent detection of prolonged prone posture for immediate alerts.
+2.  **🎥 Live AI Cam:** Real-time dynamic video analysis with an AI vision toggle.
+3.  **🚧 Collision Risk:** Real-time identification of impacts with safety equipment.
+4.  **🆘 Man-Down Detection:** Intelligent detection of prolonged prone posture for immediate alerts.
 
 ### 🛠️ Technical Stack
 * **Language:** Python 3.12.10
